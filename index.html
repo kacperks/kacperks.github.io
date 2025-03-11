@@ -1,41 +1,98 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>kacperks's personal website</title>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>kacperks personal website</title>
+  <!-- Google Font (Optional, but recommended for a modern look) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <link rel = "icon" href = "farnel.png" type = "image/x-icon">
-  <body style="	background-image: url('images/balkon.jpeg');
-	background-position: center;
-	background-size: cover;">
+  <link rel="icon" href="farnel.png" type="image/x-icon">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <!-- STARFIELD CONTAINER (will be populated by JavaScript) -->
+  <div id="starfield"></div>
 
-  <LINK REL = "STYLESHEET" HREF = "main.css">
-    <p align="center"> <img src = "farnel.png"> </img> kacperks's personal website </p>
-		<div style="padding: 0.5cm; background-color: rgba(189, 172, 172, 0.8)">
-      My name is Kacper Kostka and I'm a programmer from Poland. Im also interested in Electronics, Skateboaring , Physics and Chemistry.
-      <br></br>
-      Member of <a href="https://cubesoftware.xyz"> cube software group </a>
-  		<br></br>
+  <!-- A slight overlay to darken the background, so stars are visible -->
+  <div class="overlay"></div>
 
-      <!--Check out my <a href="gallery.html">image gallery</a> or <a href="hardware-projects.html">hardware projects</a> or <a href="articles&tutorials.html"> articles & tutorials </a> NOT ACTIVE FOR NOW-->
-      Check out my <a href="hardware-projects.html">hardware projects</a>
-      <br></br>
-      <h2>Gamedev Projects</h2>
-      <li><a href="">stupgam</a>Multiplayer Open world 3D game with procedurally generated city. Made in Godot (not public yet)</li>
-      <li><a href="https://git.weirdcore.net/PolyGun/PolyGun">PolyGun</a>Multiplayer Voxel Engine made in C++. Project began by me and friends and then continued mostly by mrkubax10</li>
-      <li><a href="https://sussycraft.github.io/">SussyCraft</a>Funny Android game based on the minetest engine made for fun with my frien Looki2000 and realesed on google play(10k+ downlands) and itch.io </li>
-      <li><a href="https://github.com/kacperks/Fractal_Engine">Fractal Engine</a> 3D OpenGL Game Engine written in C++ </li>
-      <li><a href="software-projects/farmers_league.html">Farmers League</a> 2D platformer sandbox game made in C# and Unity Engine</li>
-      <!--<li><a href="https://www.sovnat.info">Sovnat-GBI</a> the International Database Of Geographical, Building, and Land Feature Information.</li>-->
+  <!-- MAIN CONTENT -->
+  <div class="content-wrapper">
+    <header>
+      <p class="site-header">
+        <img src="farnel.png" alt="Site logo">  
+        kacperks personal website
+      </p>
+    </header>
+
+    <div class="intro-box">
+      <p>
+        My name is <strong>Kacper Kostka</strong> and I'm a programmer from Poland. I'm also interested in Electronics, 
+        Skateboarding, Physics, and Chemistry. 
+        I primarily develop in C++, JavaScript, and Python, and I am also comfortable working with a variety of other programming languages as needed.
+      </p>
+      <p>
+        Member of cube software group
+      </p>
+      <p>
+        Check out my <a href="hardware-projects.html">hardware projects</a>
+      </p>
+      
+      <h2>Some gamedev projects</h2>
+      <ul>
+        <li>
+          <strong>stupgam (current project)</strong> &mdash; Multiplayer Open world 3D game with procedurally generated city. 
+          Made in Godot (not public yet)
+        </li>
+        <li>
+          <a href="https://git.weirdcore.net/PolyGun/PolyGun" target="_blank">PolyGun</a> &mdash; Multiplayer Voxel Engine made in C++. Project began by me and friends and then continued mostly by mrkubax10
+        </li>
+        <li>
+          <a href="https://sussycraft.github.io/" target="_blank">SussyCraft</a> &mdash; Funny Android game based on the Minetest engine. 
+          (10k+ downloads on Google Play)
+        </li>
+        <li>
+          <a href="https://github.com/kacperks/Fractal_Engine" target="_blank">Fractal Engine</a> &mdash; old almost finished project 3D OpenGL Game Engine in C++
+        </li>
+        <li>
+          <a href="software-projects/farmers_league.html" target="_blank">Farmers League</a> &mdash; old almost finished project 2D platformer sandbox game in C# (Unity) 
+        </li>
+      </ul>
+
       <h2>Contact</h2>
-			<li><a href = "https://github.com/kacperks">github</a> & <a href="http://git.weirdcore.net/kacperks"> cubesoft gitea </a>
-			<!--<li><a href = "">matrix : @kacperks1:matrix.org </a></li>-->
-			<li><a href = "">email : kk@ai-solution.pl</a></li>  
-      <!--<li><a href = "https://reddit.com/u/kacperks">reddit: u/kacperks1</a></li>
-      <li><a href = "https://www.youtube.com/channel/UCWKExxKOsVtxUUkciOOhMwQ">Polish youtube channel</a></li>-->
-      <br></br>
-      2022 Kacper Kostka <!--<a href="info.html"> info about the website</a>  ||  Donate me via Monero - <a>481DHwnNgVtDU2JTBGL3v9cxtXdHzPKbtjDr</a>-->
-		</div>
-  </body>
+      <ul>
+        <li>
+          <a href="https://github.com/kacperks" target="_blank">GitHub</a> &amp; 
+          <a href="http://git.weirdcore.net/kacperks" target="_blank">cubeSoft Gitea</a> &amp;  
+          <a href="http://gitlab.com/kacperks" target="_blank">gitlab</a>
+        </li>
+        <li>email: <a href="mailto:kk@ai-solution.pl">kk@ai-solution.pl</a></li>
+      </ul>
+
+      <p class="footer-note">
+        &copy; 2024 Kacper Kostka
+      </p>
+    </div>
+  </div>
+
+  <!-- SMALL SCRIPT TO GENERATE RANDOM STARS -->
+  <script>
+    // Adjust numberOfStars as you like
+    const numberOfStars = 80;  
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const starfield = document.getElementById('starfield');
+      
+      for (let i = 0; i < numberOfStars; i++) {
+        let star = document.createElement('div');
+        star.classList.add('star');
+        // Random position
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        starfield.appendChild(star);
+      }
+    });
+  </script>
+</body>
 </html>

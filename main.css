@@ -1,78 +1,137 @@
-BODY
-{
-
-	/*background-color: #434388; */
-	font-family: 'Roboto Mono', monospace;
-    color: white;
-}
-
-h1
-{
-    color: #ffffff;
-}
-
-P
-{
-	text-shadow: 4px 4px #a5a5a5;
-	line-height: 180%;
-	width: 70%;
-	margin-top: 2em;
-	margin-bottom: 3em;
-	font-size: 1.3em;
-}
-
-HR
-{
-	height: 1px;
-	border: none;
-	background-color: #ffffff;
-}
-
-TABLE
-{
-	/*background-image: linear-gradient(rgba(28, 28, 89, 1) 0%, rgba(28, 29, 120, 1) 50%, rgba(5, 28, 105, 1) 100%);*/
-	border: 2px solid #ffffff;
-	width: 80%;
-	padding: 2px;
-}
-
-B
-{
-	font-size: 1.2em;
-	border: 2px solid #ffffff;
-}
-
-I
-{
-	text-shadow: 8px 8px #111111;
-	font-size: 1.6em;
-}
-
-A
-{
-    text-shadow: 4px 4px #928e8e;
-	color: #180736;
-}
-
-CENTER
-{
-	margin-top: 24em;
-}
-
-UL
-{
-	float: left;
-	align-content: right;
-	display: table;
-}
-
-LI
-{
+/* Apply a Google Font if you used it in the HTML */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	color: #fff;
+	background: url('images/balkon.jpeg') no-repeat center center fixed; /* or any image you want for default background */
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
+  }
+  
+  /* Overlay to darken the background slightly */
+  .overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 1;
+  }
+  
+  /* The starfield container */
+  #starfield {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0; /* behind overlay */
+	overflow: hidden;
+	pointer-events: none; /* so user can click through */
+  }
+  
+  /* Each star’s style & blinking animation */
+  .star {
+	position: absolute;
+	width: 2px;
+	height: 2px;
+	background-color: #fff;
+	border-radius: 50%;
+	animation: blink 2s infinite ease-in-out;
+	box-shadow: 0 0 6px #fff;
+  }
+  
+  @keyframes blink {
+	0%, 100% {
+	  opacity: 1;
+	}
+	50% {
+	  opacity: 0;
+	}
+  }
+  
+  /* Wrapper for all visible page content */
+  .content-wrapper {
+	position: relative;
+	z-index: 2;
+	min-height: 100vh; 
+	display: flex;
+	flex-direction: column;
+	justify-content: center; 
+	align-items: center;
+	padding: 1rem;
+  }
+  
+  /* White-ish translucent background behind text for readability */
+  .intro-box {
+	background-color: rgba(255, 255, 255, 0.05);
+	padding: 2rem;
+	border-radius: 8px;
+	max-width: 900px;
+	margin: 2rem;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  
+  /* Header style */
+  .site-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-weight: 600;
+	font-size: 1.5rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+  }
+  
+  .site-header img {
+	max-height: 80px;
+	margin-bottom: 0.5rem;
+  }
+  
+  /* Links */
+  a {
+	color: #ffd700;
+	text-decoration: none;
+	transition: color 0.3s ease;
+  }
+  
+  a:hover {
+	color: #ffc400;
+  }
+  
+  /* Lists, etc. */
+  ul {
 	list-style: none;
-    color:  #b6dee5;
-}
-
-A:HOVER
-{
-	color: #180736;
-}
+	padding-left: 0;
+	margin: 1rem 0;
+  }
+  
+  li {
+	margin-bottom: 0.6rem;
+  }
+  
+  /* Menu for switching project sections */
+  .project-menu {
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1rem;
+  }
+  
+  /* Individual project section styling */
+  .project-section {
+	margin-top: 1rem;
+  }
+  
+  /* Footer text */
+  .footer-note {
+	font-size: 0.85rem;
+	color: #ccc;
+	margin-top: 2rem;
+	text-align: center;
+  }
+  

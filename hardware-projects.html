@@ -1,29 +1,152 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>kacperks's personal website</title>
-  </head>  
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hardware Projects - kacperks</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="farnel.png" type="image/x-icon">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <!-- Starfield + overlay for background -->
+  <div id="starfield"></div>
+  <div class="overlay"></div>
 
-  <link rel = "icon" href = "farnel.png" type = "image/x-icon">
-  <body style="	background-image: url('images/molo3am.jpeg');
-	background-position: center;
-	background-size: cover;">
-  <LINK REL = "STYLESHEET" HREF = "main.css">
-    <p align="center"> <img src = "farnel.png"> </img> kacperks's personal website </p>
-		<div style="padding: 0.5cm; background-color: rgba(189, 172, 172, 0.8)">
-      Go to <a href="index.html">Home Page</a>
-      
-      <h2>Some Hardware Projects</h2>
-      <li><a href=""> Big Solid State Tesla Coil (Almost Finished)</a> Big SSTC2 circuit based Tesla Coil powered from 450VDC More Proffesional than the old one</li>
-      <li><a href="hardware-projects/crappy-tc-ss.html">Crappy Tesla Coil (Finished)</a> My first simple SSTC </li>
-      <li><a href="hardware-projects/atarijs.html"> Cappy DIY DB9 controller (Finished)</a> DIY game controller revised for Atari2600 Junior </li>
-      <li><a href="hardware-projects/coilgun.html">30V Coil Gun (Finished)</a> Simple Coilgun made using a simple circuit which includes a big capacitor bank </li>
-      <li><a href="hardware-projects/bad-usb-pico.html"> badUSB using raspberry PICO (Finished)</a> DIY 5$ bad usb and some uses of it (:< </li>
-      <li><a href=""> Robotic Arm (Finished)</a> Arduino Robotic Arm controlled using Inverse Kinematics Algorithm </li>
-      <!--<li> SOON: </li>
-      <li><a href="hardware-projects/8bitgameconsole.html">8-Bit Games Console (WIP) article soon</a> Simple game console which is using an Osciloscope as a Display </li>
-      <li><a href="hardware-projects/fusor.html"> Fusor (WIP) article soon</a> DIY High Voltage nuclear fusion reactor </li> -->
-    </div>
-  </body>
+  <div class="content-wrapper">
+    <header>
+      <p class="site-header">
+        <img src="farnel.png" alt="Site logo">
+        kacperks personal website
+      </p>
+    </header>
+
+    <div class="intro-box">
+      <p>
+        Go to <a href="index.html">Home Page</a>
+      </p>
+      <h2>Hardware Projects</h2>
+
+      <!-- MENU: Click to reveal specific project -->
+      <ul class="project-menu">
+        <!--<li><a href="#" onclick="showProject('bigTesla'); return false;">Big Solid State Tesla Coil (Almost Finished)</a></li>-->
+        <li><a href="#" onclick="showProject('crappyTC'); return false;">Crappy Tesla Coil (Finished)</a></li>
+        <li><a href="#" onclick="showProject('atarijs'); return false;">Cappy DIY DB9 Atari Controller (Finished)</a></li>
+        <li><a href="#" onclick="showProject('coilgun'); return false;">30V Coil Gun (Finished)</a></li>
+        <li><a href="#" onclick="showProject('badusb'); return false;">badUSB using Raspberry Pico (Finished)</a></li>
+        <!--<li><a href="#" onclick="showProject('robotArm'); return false;">Robotic Arm (Finished)</a></li>-->
+      </ul>
+
+      <!-- PROJECT SECTIONS (Hidden by default via CSS inline style or a .hidden class) -->
+
+      <!-- Big Solid State Tesla Coil -->
+      <div class="project-section" id="bigTesla" style="display:none;">
+        <h3>Big Solid State Tesla Coil (Almost Finished)</h3>
+        <ul>
+          <li>Big SSTC2 circuit-based Tesla Coil powered from 450VDC</li>
+          <li>More professional design than the old one</li>
+          <!-- Add images/notes/schematics as desired -->
+        </ul>
+      </div>
+
+      <!-- Crappy Tesla Coil -->
+      <div class="project-section" id="crappyTC" style="display:none;">
+        <h3>Crappy Tesla Coil (Finished)</h3>
+        <ul>
+          <li>This Tesla coil uses a modification of the Slayer Exciter circuit by Mehdi (ElectroBoom)</li>
+          <li>Initially, it was the basic Slayer Exciter circuit</li>
+          <li>Powered by a DIY DC power supply (Transformer, FullBridge Rectifier, Capacitors)</li>
+          <li><a href="hardware-projects/SETC.png" target="_blank">Schematic</a></li>
+        </ul>
+        <img src="hardware-projects/tcc.jpeg" width="350" height="450" alt="Tesla Coil">
+        <img src="hardware-projects/fbr.jpeg" width="350" height="450" alt="Full Bridge Rectifier">
+        <video controls autoplay width="540" height="480">
+          <source src="hardware-projects/cctcvid.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- DIY Atari 2600 Joystick -->
+      <div class="project-section" id="atarijs" style="display:none;">
+        <h3>Crappy DIY Atari 2600 Joystick</h3>
+        <ul>
+          <li>Got a ~40-year-old <a href="https://en.wikipedia.org/wiki/Atari_2600" target="_blank">Atari 2600 Junior</a> without a controller</li>
+          <li>So I decided to make my own simple DB9 game controller</li>
+          <li><a href="https://i.sstatic.net/UZRjg.png" target="_blank">Schematic</a></li>
+        </ul>
+        <img src="hardware-projects/1a.jpg" width="500" height="450" alt="DIY Atari Joystick">
+        <img src="hardware-projects/2a.jpg" width="350" height="450" alt="DIY Atari Joystick internals">
+      </div>
+
+      <!-- 30V Coil Gun -->
+      <div class="project-section" id="coilgun" style="display:none;">
+        <h3>Crappy 30V Coil Gun</h3>
+        <ul>
+          <li>Uses a simple circuit I designed: MOSFET, coil (~600 turns), capacitor bank (7x 2200µF @ 50V), LED indicator</li>
+          <li>Coil wound around a small syringe</li>
+          <li><a href="hardware-projects/CoilGunSchematic.png" target="_blank">Schematic</a></li>
+        </ul>
+        <img src="hardware-projects/cg.jpeg" width="150" height="275" alt="Coil Gun">
+        <img src="hardware-projects/cg2.jpeg" width="150" height="275" alt="Coil Gun 2">
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/siKw_COYVNo" allowfullscreen></iframe>
+      </div>
+
+      <!-- badUSB using Raspberry Pico -->
+      <div class="project-section" id="badusb" style="display:none;">
+        <h3>DIY Bad USB (Raspberry Pico)</h3>
+        <ul>
+          <li>Convert a cheap $5 Raspberry Pi Pico into a “bad USB” that runs DuckyScript payloads</li>
+          <li>Tutorial video: <a href="https://www.youtube.com/watch?v=e_f9p-_JWZw" target="_blank">YouTube Link</a></li>
+          <li>My brother made a payload that spawns an annoying unstoppable music VB script after 6 minutes</li>
+          <li>We tested it in a Media Markt store for fun (the staff had trouble stopping it)</li>
+          <li><a href="https://github.com/lubek-dc/pico-ducky-loader" target="_blank">Source Code by my brother</a></li>
+        </ul>
+        <img src="hardware-projects/bigbrain.jpg" width="210" height="315" alt="Bad USB Photo">
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/AF73F-l_-x0" allowfullscreen></iframe>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/h0Zi4O7QAyo" allowfullscreen></iframe>
+      </div>
+
+      <!-- Robotic Arm -->
+      <div class="project-section" id="robotArm" style="display:none;">
+        <h3>Robotic Arm (Finished)</h3>
+        <ul>
+          <li>Arduino-based robotic arm controlled via an inverse kinematics algorithm</li>
+          <li>Mix of servo motors, linkages, and custom code</li>
+          <!-- Add images/schematics if you have them -->
+        </ul>
+      </div>
+    </div> <!-- /intro-box -->
+  </div> <!-- /content-wrapper -->
+
+  <!-- Script for starfield (same as index) -->
+  <script>
+    const numberOfStars = 80;
+    window.addEventListener('DOMContentLoaded', () => {
+      const starfield = document.getElementById('starfield');
+      for (let i = 0; i < numberOfStars; i++) {
+        let star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        starfield.appendChild(star);
+      }
+    });
+  </script>
+
+  <!-- Script to show/hide projects -->
+  <script>
+    function showProject(projectId) {
+      // Hide all project sections
+      const sections = document.querySelectorAll('.project-section');
+      sections.forEach(sec => sec.style.display = 'none');
+
+      // Show the chosen section
+      const target = document.getElementById(projectId);
+      if (target) {
+        target.style.display = 'block';
+        // Scroll the page to it, if desired
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
 </html>

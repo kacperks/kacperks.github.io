@@ -1,28 +1,74 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Farmers League - kacperks</title>
+  <!-- Optional Google Font for modern look -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <link rel = "icon" href = "farnel.png" type = "image/x-icon">
-  <head>
-    <meta charset="utf-8">
-    <title>kacperks's personal website</title>
-  </head>  
-  <body style="	background-image: url('../images/tene.jpeg');
-	background-position: center;
-	background-size: cover;">
-  <LINK REL = "STYLESHEET" HREF = "../main.css">
-    <p align="center"> <img src = "../farnel.png"> </img> kacperks's personal website </p>
-		<div style="padding: 0.5cm; background-color: rgba(189, 172, 172, 0.8)">
-      Go to <a href="../index.html">Home Page</a>
+  <link rel="icon" href="../farnel.png" type="image/x-icon">
+  <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+  <!-- Starfield container -->
+  <div id="starfield"></div>
+
+  <!-- Overlay to darken the background (slightly) -->
+  <div class="overlay"></div>
+
+  <!-- Main content area -->
+  <div class="content-wrapper">
+    <header>
+      <p class="site-header">
+        <img src="../farnel.png" alt="Site logo">  
+        kacperks personal website
+      </p>
+    </header>
+
+    <div class="intro-box">
+      <p>
+        Go to <a href="../index.html">Home Page</a>
+      </p>
+
+      <h2>Software Projects - Farmers League Android Game</h2>
+      <ul>
+        <li>
+          A few years ago, I developed a simple Android game as a test in C# (Unity engine).
+        </li>
+        <li>
+          The goal was to create a nice platform sandbox with a debug console to spawn entities and more 
+          (inspired by playing with debug consoles in games like Minecraft).
+        </li>
+        <li>
+          Most of my art and programming skills improved during this project.
+        </li>
+        <li>
+          <a href="https://play.google.com/store/apps/details?id=com.KacperKostka.FarmerLeague" target="_blank">Google Play</a>
+        </li>
+      </ul>
       
-      <h2>Software Projects - Farmers League android game</h2>
-      <li> A few years ago I was working on a simple Android game. The game was developed in C# using the Unity engine as a test of it. </li>
-      <li> The goal was to create a very nice platform sandbox which has an console</li>
-      <li> Most of my art and programming skills came from the development of this game </li>
-      <li> <a href="https://play.google.com/store/apps/details?id=com.KacperKostka.FarmerLeague"> GOOGLE PLAY </a> </li>
-      <br></br>
-      <img width="450" height="250" src="1fl.webp"></img>
-      <img width="450" height="250" src="2fl.webp"></img>
-      <img width="450" height="250" src="3fl.webp"></img>
+      <div style="margin-top: 1rem;">
+        <img src="1fl.webp" width="450" height="250" alt="Farmers League Screenshot 1">
+        <img src="2fl.webp" width="450" height="250" alt="Farmers League Screenshot 2">
+        <img src="3fl.webp" width="450" height="250" alt="Farmers League Screenshot 3">
+      </div>
     </div>
-  </body>
+  </div>
+
+  <!-- Script for creating blinking stars -->
+  <script>
+    const numberOfStars = 80;
+    window.addEventListener('DOMContentLoaded', () => {
+      const starfield = document.getElementById('starfield');
+      for (let i = 0; i < numberOfStars; i++) {
+        let star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        starfield.appendChild(star);
+      }
+    });
+  </script>
+</body>
 </html>
