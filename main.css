@@ -75,6 +75,7 @@ body {
 	max-width: 900px;
 	margin: 2rem;
 	box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+	backdrop-filter: blur(10px);
   }
   
   /* Header style */
