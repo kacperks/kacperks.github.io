@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Sand Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body oncontextmenu="return false;">
+    <div class="container">
+        <div class="controls">
+            <div class="tools">
+                <button id="sand-btn" class="active">Sand</button>
+                <button id="water-btn">Water</button>
+                <button id="dirt-btn">Dirt</button>
+                <button id="stone-btn">Stone</button>
+                <button id="grass-btn">Grass</button>
+                <button id="wood-btn">Wood</button>
+                <button id="seed-btn">Seed</button>
+                <button id="tree-seed-btn">Tree Seed</button>
+                <button id="fire-btn">Fire</button>
+                <button id="lava-btn">Lava</button>
+                <button id="rabbit-btn">Rabbit</button>
+                <button id="square-btn">Square</button>
+                <button id="circle-btn">Circle</button>
+                <button id="triangle-btn">Triangle</button>
+                <button id="eraser-btn">Eraser</button>
+                <button id="spawn-player-btn">Spawn Player</button>
+            </div>
+            <div class="navigation">
+                <button id="move-left">←</button>
+                <button id="move-right">→</button>
+                <button id="move-up">↑</button>
+                <button id="move-down">↓</button>
+                <button id="debug-btn">Debug</button>
+            </div>
+            <div class="info">
+                <span id="coords">Chunk: 0,0</span>
+                <span id="fps">FPS: 0</span>
+                <span class="help-text">Hold Shift/Ctrl or right-click to drag the world</span>
+            </div>
+        </div>
+        <canvas id="simulation-canvas"></canvas>
+    </div>
+    <!-- Load modules in the correct order -->
+    <script src="js/constants.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/elements/basic.js"></script>
+    <script src="js/elements/plants.js"></script>
+    <script src="js/elements/trees.js"></script>
+    <script src="js/elements/fire.js"></script>
+    <script src="js/elements/physics_objects.js"></script>
+    <script src="js/entities/entity.js"></script>
+    <script src="js/entities/rabbit.js"></script>
+    <script src="js/entities/player.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/physics.js"></script>
+    <script src="js/terrain.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
