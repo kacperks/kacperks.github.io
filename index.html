@@ -2,97 +2,448 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>kacperks personal website</title>
-  <!-- Google Font (Optional, but recommended for a modern look) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kacper Kostka — Freelance programmer from Poland. Games, engines, tools, and more.">
+  <title>Kacper Kostka — Freelance Programmer</title>
   <link rel="icon" href="farnel.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <!-- STARFIELD CONTAINER (will be populated by JavaScript) -->
+  <!-- BACKGROUND LAYERS -->
   <div id="starfield"></div>
-
-  <!-- A slight overlay to darken the background, so stars are visible -->
   <div class="overlay"></div>
 
-  <!-- MAIN CONTENT -->
-  <div class="content-wrapper">
-    <header>
-      <p class="site-header">
-        <img src="farnel.png" alt="Site logo">  
-        kacperks personal website
-      </p>
-    </header>
-
-    <div class="intro-box">
-      <p>
-        My name is <strong>Kacper Kostka</strong> and I'm a programmer from Poland. I'm also interested in Electronics, 
-        Skateboarding, Physics, and Chemistry. 
-        I primarily develop in C++, JavaScript, and Python, and I am also comfortable working with a variety of other programming languages as needed.
-      </p>
-      <p>
-        Member of cube software group
-      </p>
-      <p>
-        Check out my <a href="hardware-projects.html">hardware projects</a>
-      </p>
-      
-      <h2>Some gamedev projects</h2>
-      <ul>
-        <li>
-          <strong>stupgam (current project)</strong> &mdash; Multiplayer Open world 3D game with procedurally generated city. 
-          Made in Godot (not public yet)
-        </li>
-        <li>
-          <a href="https://git.weirdcore.net/PolyGun/PolyGun" target="_blank">PolyGun</a> &mdash; Multiplayer Voxel Engine made in C++. Project began by me and friends and then continued mostly by mrkubax10
-        </li>
-        <li>
-          <a href="https://sussycraft.github.io/" target="_blank">SussyCraft</a> &mdash; Funny Android game based on the Minetest engine. 
-          (10k+ downloads on Google Play)
-        </li>
-        <li>
-          <a href="https://github.com/kacperks/Fractal_Engine" target="_blank">Fractal Engine</a> &mdash; old almost finished project 3D OpenGL Game Engine in C++
-        </li>
-        <li>
-          <a href="software-projects/farmers_league.html" target="_blank">Farmers League</a> &mdash; old almost finished project 2D platformer sandbox game in C# (Unity) 
-        </li>
-      </ul>
-
-      <h2>Contact</h2>
-      <ul>
-        <li>
-          <a href="https://github.com/kacperks" target="_blank">GitHub</a> &amp; 
-          <a href="http://git.weirdcore.net/kacperks" target="_blank">cubeSoft Gitea</a> &amp;  
-          <a href="http://gitlab.com/kacperks" target="_blank">gitlab</a>
-        </li>
-        <li>email: <a href="mailto:kk@ai-solution.pl">kk@ai-solution.pl</a></li>
-      </ul>
-
-      <p class="footer-note">
-        &copy; 2024 Kacper Kostka
-      </p>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a class="nav-logo" href="#hero">
+      <img src="farnel.png" alt="logo"> kacperks
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" onclick="closeNav()">About</a>
+      <a href="#projects" onclick="closeNav()">Projects</a>
+      <a href="#hire" onclick="closeNav()">Hire Me</a>
+      <a href="#contact" onclick="closeNav()">Contact</a>
     </div>
-  </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-  <!-- SMALL SCRIPT TO GENERATE RANDOM STARS -->
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-badge anim-fadeup" style="--delay:0.1s">
+        <span class="badge-dot"></span>
+        Available for freelance work
+      </div>
+      <h1 class="hero-title anim-fadeup" style="--delay:0.25s">
+        Hi, I'm <span class="gold-text">Kacper&nbsp;Kostka</span>
+      </h1>
+      <div class="typewriter-line anim-fadeup" style="--delay:0.4s">
+        <span class="fira" id="typeText"></span><span class="caret">█</span>
+      </div>
+      <p class="hero-desc anim-fadeup" style="--delay:0.55s">
+        Freelance programmer from Poland. I build games, engines, and software tools with passion.
+        Core member of <a href="https://cubesoftware.xyz" target="_blank">Cube Software</a>.
+      </p>
+      <div class="hero-cta anim-fadeup" style="--delay:0.7s">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#hire" class="btn btn-fiverr">Hire Me on Fiverr</a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-hint" aria-label="Scroll down">
+      <div class="scroll-arrow"></div>
+      <span>scroll</span>
+    </a>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title reveal">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a self-taught programmer from Poland with a deep passion for game development, low-level programming, and creative software projects. I work primarily in <strong>C++</strong>, <strong>JavaScript</strong>, and <strong>Python</strong>, but I'm comfortable picking up whatever the project needs.</p>
+          <p>Outside of code I'm into electronics, skateboarding, physics, and chemistry — and I've built Tesla coils, coil guns, and other hardware projects in my spare time.</p>
+          <p>Core member of the indie dev group <a href="https://cubesoftware.xyz" target="_blank">Cube Software</a>.</p>
+          <a href="hardware-projects.html" class="btn btn-outline btn-sm" style="margin-top:1rem;display:inline-flex;">
+            See Hardware Projects →
+          </a>
+        </div>
+        <div class="skills-panel reveal">
+          <div class="skill-group">
+            <h4>Languages</h4>
+            <div class="tag-cloud">
+              <span class="tag">C++</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">C#</span>
+              <span class="tag">GDScript</span>
+              <span class="tag">Lua</span>
+              <span class="tag">HTML / CSS</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Tools &amp; Engines</h4>
+            <div class="tag-cloud">
+              <span class="tag">Godot</span>
+              <span class="tag">Unity</span>
+              <span class="tag">OpenGL</span>
+              <span class="tag">Git</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Arduino</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Interests</h4>
+            <div class="tag-cloud">
+              <span class="tag tag-alt">Game Dev</span>
+              <span class="tag tag-alt">Electronics</span>
+              <span class="tag tag-alt">Skateboarding</span>
+              <span class="tag tag-alt">Physics &amp; Chem</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">Projects</h2>
+      <p class="section-sub reveal">A selection of games, engines, and tools I've built.</p>
+      <div class="projects-grid">
+
+        <!-- SANDSIM — Featured, New -->
+        <div class="project-card featured reveal">
+          <div class="project-card-inner">
+            <div class="project-tag-row">
+              <span class="project-badge new">New</span>
+              <span class="project-badge hosted">Hosted Here</span>
+              <span class="project-badge released">HTML5</span>
+            </div>
+            <h3>SandSim</h3>
+            <p>My clone of the classic Android <em>sand:box</em> particle simulation game, rebuilt from scratch in HTML5 Canvas. Draw sand, water, fire, lava, stone and more — and watch them interact in real time. Fully playable in the browser.</p>
+            <div class="project-tech">
+              <span>HTML5 Canvas</span><span>JavaScript</span><span>Cellular Automaton</span>
+            </div>
+            <div class="project-links">
+              <a href="sandsim/" class="btn btn-sm btn-primary">▶ Play Now</a>
+              <a href="https://csgit.evadingreality.org/kacperks/sandsim" target="_blank" class="btn btn-sm btn-outline">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- STUPGAM -->
+        <div class="project-card reveal">
+          <div class="project-card-inner">
+            <div class="project-tag-row">
+              <span class="project-badge wip">In Dev</span>
+            </div>
+            <h3>stupgam</h3>
+            <p>Multiplayer open world 3D game with a procedurally generated city. Built in Godot. Not public yet — stay tuned.</p>
+            <div class="project-tech">
+              <span>Godot</span><span>GDScript</span><span>Multiplayer</span>
+            </div>
+            <div class="project-links">
+              <span class="muted-text">Not public yet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- POLYGUN -->
+        <div class="project-card reveal">
+          <div class="project-card-inner">
+            <div class="project-tag-row">
+              <span class="project-badge">Ongoing</span>
+            </div>
+            <h3>PolyGun</h3>
+            <p>Multiplayer voxel engine written in C++. Started by me and collaborators, now continued mostly by mrkubax10.</p>
+            <div class="project-tech">
+              <span>C++</span><span>OpenGL</span><span>Networking</span>
+            </div>
+            <div class="project-links">
+              <a href="https://csgit.evadingreality.org/PolyGun/PolyGun" target="_blank" class="btn btn-sm btn-outline">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUSSYCRAFT -->
+        <div class="project-card reveal">
+          <div class="project-card-inner">
+            <div class="project-tag-row">
+              <span class="project-badge released">Released</span>
+            </div>
+            <h3>SussyCraft</h3>
+            <p>Funny Android game based on the Minetest engine. Reached 10 000+ downloads on Google Play.</p>
+            <div class="project-tech">
+              <span>Minetest</span><span>Lua</span><span>Android</span>
+            </div>
+            <div class="project-links">
+              <a href="https://sussycraft.github.io/" target="_blank" class="btn btn-sm btn-outline">Website</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FRACTAL ENGINE -->
+        <div class="project-card reveal">
+          <div class="project-card-inner">
+            <div class="project-tag-row">
+              <span class="project-badge archived">Archived</span>
+            </div>
+            <h3>Fractal Engine</h3>
+            <p>3D OpenGL game engine written in C++. An old but nearly finished personal engine project with a basic rendering pipeline.</p>
+            <div class="project-tech">
+              <span>C++</span><span>OpenGL</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/kacperks/Fractal_Engine" target="_blank" class="btn btn-sm btn-outline">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FARMERS LEAGUE -->
+        <div class="project-card reveal">
+          <div class="project-card-inner">
+            <div class="project-tag-row">
+              <span class="project-badge archived">Archived</span>
+            </div>
+            <h3>Farmers League</h3>
+            <p>2D platformer sandbox game built in Unity (C#). Published on Google Play.</p>
+            <div class="project-tech">
+              <span>C#</span><span>Unity</span><span>Android</span>
+            </div>
+            <div class="project-links">
+              <a href="software-projects/farmers_league.html" class="btn btn-sm btn-outline">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HARDWARE PROJECTS CARD -->
+        <div class="project-card reveal">
+          <div class="project-card-inner">
+            <div class="project-tag-row">
+              <span class="project-badge">Hardware</span>
+            </div>
+            <h3>Hardware Projects</h3>
+            <p>Tesla coils, coil guns, DIY Atari 2600 controllers, badUSB devices and more. Where electronics meets software.</p>
+            <div class="project-tech">
+              <span>Electronics</span><span>Arduino</span><span>Raspberry Pi Pico</span>
+            </div>
+            <div class="project-links">
+              <a href="hardware-projects.html" class="btn btn-sm btn-outline">View All</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HIRE ME ==================== -->
+  <section class="section hire-section" id="hire">
+    <div class="container">
+      <h2 class="section-title reveal">Work With Me</h2>
+      <p class="section-sub reveal">Looking for a reliable programmer for your next project? I'm available for freelance work.</p>
+      <div class="hire-grid">
+
+        <!-- FIVERR WIDGET -->
+        <div class="fiverr-widget reveal">
+          <div class="fiverr-header">
+            <div class="fiverr-brand">
+              <svg class="fiverr-logo-svg" viewBox="0 0 77 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Fiverr">
+                <path d="M41.6 21.5H38V11h3.6v10.5zM38 7.8a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm15.2 6.5c0 3.8-2.7 6.5-6.4 6.5s-6.4-2.7-6.4-6.5c0-3.8 2.7-6.5 6.4-6.5s6.4 2.7 6.4 6.5zm-3.7 0c0-1.7-1.2-3-2.7-3s-2.7 1.3-2.7 3 1.2 3 2.7 3 2.7-1.3 2.7-3zm11 6.5-3.2-6 3.2-6h-4l-3.1 6 3.1 6h4zm8.8-5.6h-7.8c.4 1.4 1.3 2.1 2.7 2.1 1 0 1.9-.3 2.5-1l2.3 2c-1.1 1.3-2.9 2.1-4.9 2.1-3.8 0-6.5-2.7-6.5-6.5 0-3.8 2.6-6.5 6.2-6.5 3.5 0 5.8 2.7 5.8 6.5 0 .4 0 .9-.1 1.3zM62.5 12c-.3-1.3-1.2-2.1-2.2-2.1-1 0-1.8.8-2.1 2.1h4.3zM24 7h-8.7v5h6.2v3.4h-6.2v6H12V3.5h12V7zm6.2 5.2c.6-.6 1.5-.9 2.2-.9.4 0 .9.1 1.2.2l.4 3.5c-.5-.2-1-.3-1.6-.3-1.5 0-2.3.9-2.3 2.8v4.9h-3.8V11.1h3.8v1.1z" fill="#1DBF73"/>
+              </svg>
+              <span class="fiverr-label">Freelance Profile</span>
+            </div>
+            <div class="fiverr-rating-badge">
+              <span class="stars">★★★★★</span>
+              <span class="rating-num">5.0</span>
+            </div>
+          </div>
+          <div class="fiverr-gig-body">
+            <h3>Hire me for your project</h3>
+            <p>Game development, CLI tools, automation, web apps and embedded systems — let's build something great together.</p>
+            <ul class="fiverr-features">
+              <li>Game Development (Godot / Unity / C++)</li>
+              <li>CLI Tools &amp; Automation (Python / JS)</li>
+              <li>Web Development (HTML / CSS / JS)</li>
+              <li>Hardware &amp; Embedded Systems</li>
+            </ul>
+          </div>
+          <a href="https://www.fiverr.com/s/zWwzjpK" target="_blank" rel="noopener noreferrer" class="btn btn-fiverr btn-wide">
+            View Fiverr Profile →
+          </a>
+        </div>
+
+        <!-- DIRECT CONTACT -->
+        <div class="contact-mini reveal">
+          <h3>Direct Contact</h3>
+          <p>Prefer to talk directly? Reach out by email or find my work on these platforms.</p>
+          <div class="contact-links-list">
+            <a href="mailto:kk@ai-solution.pl" class="contact-link-row">
+              <span class="contact-icon-small">✉</span>
+              <div>
+                <strong>Email</strong>
+                <small>kk@ai-solution.pl</small>
+              </div>
+            </a>
+            <a href="https://github.com/kacperks" target="_blank" class="contact-link-row">
+              <span class="contact-icon-small">⌥</span>
+              <div>
+                <strong>GitHub</strong>
+                <small>@kacperks</small>
+              </div>
+            </a>
+            <a href="https://csgit.evadingreality.org/kacperks" target="_blank" class="contact-link-row">
+              <span class="contact-icon-small">◈</span>
+              <div>
+                <strong>CubeSoft Gitea</strong>
+                <small>@kacperks</small>
+              </div>
+            </a>
+            <a href="https://gitlab.com/kacperks" target="_blank" class="contact-link-row">
+              <span class="contact-icon-small">◆</span>
+              <div>
+                <strong>GitLab</strong>
+                <small>@kacperks</small>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">Contact</h2>
+      <div class="contact-cards-row">
+        <a href="mailto:kk@ai-solution.pl" class="contact-card reveal">
+          <span class="contact-card-icon">✉</span>
+          <strong>Email</strong>
+          <small>kk@ai-solution.pl</small>
+        </a>
+        <a href="https://github.com/kacperks" target="_blank" class="contact-card reveal">
+          <span class="contact-card-icon">⌥</span>
+          <strong>GitHub</strong>
+          <small>@kacperks</small>
+        </a>
+        <a href="https://csgit.evadingreality.org/kacperks" target="_blank" class="contact-card reveal">
+          <span class="contact-card-icon">◈</span>
+          <strong>CubeSoft Gitea</strong>
+          <small>@kacperks</small>
+        </a>
+        <a href="https://gitlab.com/kacperks" target="_blank" class="contact-card reveal">
+          <span class="contact-card-icon">◆</span>
+          <strong>GitLab</strong>
+          <small>@kacperks</small>
+        </a>
+        <a href="https://www.fiverr.com/s/zWwzjpK" target="_blank" rel="noopener" class="contact-card contact-card-fiverr reveal">
+          <span class="contact-card-icon">⚡</span>
+          <strong>Fiverr</strong>
+          <small>Hire me</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="farnel.png" alt="logo">
+          <span>kacperks</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="hardware-projects.html">Hardware</a>
+          <a href="articles&tutorials.html">Articles</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="sandsim/">SandSim</a>
+          <a href="info.html">Info</a>
+        </nav>
+        <p class="footer-copy">&copy; 2025 Kacper Kostka</p>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // Adjust numberOfStars as you like
-    const numberOfStars = 80;  
-
+    /* ── STARFIELD ── */
     window.addEventListener('DOMContentLoaded', () => {
-      const starfield = document.getElementById('starfield');
-      
-      for (let i = 0; i < numberOfStars; i++) {
-        let star = document.createElement('div');
-        star.classList.add('star');
-        // Random position
-        star.style.top = Math.random() * 100 + '%';
-        star.style.left = Math.random() * 100 + '%';
-        starfield.appendChild(star);
+      const sf = document.getElementById('starfield');
+      for (let i = 0; i < 140; i++) {
+        const s = document.createElement('div');
+        s.classList.add('star');
+        s.style.top  = Math.random() * 100 + '%';
+        s.style.left = Math.random() * 100 + '%';
+        const sz = Math.random() * 2 + 1;
+        s.style.width  = sz + 'px';
+        s.style.height = sz + 'px';
+        s.style.animationDelay    = (Math.random() * 5) + 's';
+        s.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        sf.appendChild(s);
       }
     });
+
+    /* ── NAVBAR SCROLL ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ── HAMBURGER ── */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+    function closeNav() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+
+    /* ── TYPEWRITER ── */
+    const phrases = [
+      'Freelance Programmer',
+      'Game Developer',
+      'C++ / JavaScript / Python',
+      'Building things since forever'
+    ];
+    let pIdx = 0, cIdx = 0, deleting = false;
+    const typeEl = document.getElementById('typeText');
+    function typeStep() {
+      const phrase = phrases[pIdx];
+      if (!deleting) {
+        typeEl.textContent = phrase.slice(0, ++cIdx);
+        if (cIdx === phrase.length) { deleting = true; setTimeout(typeStep, 2000); return; }
+        setTimeout(typeStep, 75);
+      } else {
+        typeEl.textContent = phrase.slice(0, --cIdx);
+        if (cIdx === 0) {
+          deleting = false;
+          pIdx = (pIdx + 1) % phrases.length;
+          setTimeout(typeStep, 400);
+          return;
+        }
+        setTimeout(typeStep, 35);
+      }
+    }
+    setTimeout(typeStep, 900);
+
+    /* ── SCROLL REVEAL ── */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
