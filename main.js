@@ -10,7 +10,7 @@ const siteData = fetch('projects.json').then(response => {
   const canvas = document.querySelector('#noise-background');
   const context = canvas.getContext('2d', { alpha: false });
   if (!context) return;
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Continuous motion is intentional for this TV background. Pause only in hidden tabs.
   const permutation = Array.from({ length: 256 }, (_, i) => i);
   for (let i = 255; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -65,7 +65,7 @@ const siteData = fetch('projects.json').then(response => {
       photo = image;
       currentPhoto = path;
       samplePhoto();
-      if (glitch && !motion.matches) glitchUntil = performance.now() + 480;
+      if (glitch) glitchUntil = performance.now() + 480;
       draw(performance.now());
     };
     image.onerror = () => { loadingPhoto = false; };
@@ -78,7 +78,7 @@ const siteData = fetch('projects.json').then(response => {
     }
   }).catch(() => {});
   window.setInterval(() => {
-    if (document.hidden || motion.matches || loadingPhoto) return;
+    if (document.hidden || loadingPhoto) return;
     const candidates = photoPaths.filter(path => path !== currentPhoto);
     if (candidates.length) loadPhoto(candidates[Math.floor(Math.random() * candidates.length)]);
   }, 6500);
@@ -95,24 +95,24 @@ const siteData = fetch('projects.json').then(response => {
     draw(performance.now());
   }
   function draw(now) {
-    const time = now * .00013;
+    const time = now * .00065;
     const data = pixels.data;
     const glitching = now < glitchUntil;
     const width = canvas.width, height = canvas.height;
     const rollingBand = (now * .035) % (height + 60) - 30;
     for (let y = 0; y < height; y++) {
       // Gentle continuous warping plus short horizontal tears on photo changes.
-      const drift = Math.round(noise(y * .018, time * 2, 3) * 5);
+      const drift = Math.round(noise(y * .018, time * 1.3, 3) * 9);
       const tear = glitching && Math.sin(Math.floor(y / 9) * 17 + Math.floor(now / 55)) > .35
         ? Math.round(noise(Math.floor(y / 9), now * .015, 9) * width * .22) : 0;
       for (let x = 0; x < width; x++) {
-        const nx = x * .024 + time * .4;
-        const ny = y * .024 - time * .25;
-        const flow = noise(nx, ny, time);
+        const nx = x * .018 + time * 1.1;
+        const ny = y * .018 - time * .7;
+        const flow = noise(nx, ny, time * .75);
         const detail = noise(nx * 3, ny * 3, time * 1.8);
-        const grain = (Math.random() - .5) * (glitching ? 115 : 48);
+        const grain = (Math.random() - .5) * (glitching ? 115 : 36);
         const band = Math.max(0, 1 - Math.abs(y - rollingBand) / 16) * 13;
-        const interference = flow * 35 + detail * 12 + grain + band;
+        const interference = flow * 72 + detail * 16 + grain + band;
         const scanline = y % 3 === 0 ? .89 : 1;
         const sx = ((x + drift + tear) % width + width) % width;
         const source = (y * width + sx) * 4;
@@ -136,13 +136,12 @@ const siteData = fetch('projects.json').then(response => {
   }
   function syncAnimation() {
     window.cancelAnimationFrame(animation);
-    if (!document.hidden && !motion.matches) {
+    if (!document.hidden) {
       animation = window.requestAnimationFrame(frame);
     }
   }
   window.addEventListener('resize', resize);
   document.addEventListener('visibilitychange', syncAnimation);
-  motion.addEventListener('change', syncAnimation);
   resize();
   loadPhoto(photoPaths[0], false);
   syncAnimation();

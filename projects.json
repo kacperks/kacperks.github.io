@@ -17,36 +17,82 @@
   ],
   "projects": [
     {
+      "title": "stupgam",
+      "description": "Multiplayer 3D game about a procedurally generated city. The biggest gamedev project of my life. Release date and steam page soon",
+      "image": "resources/sg.png",
+      "imageAlt": "stupgam — procedurally generated city",
+      "tags": [
+        "3D",
+        "multiplayer",
+        "procedural generation",
+        "gamedev"
+      ],
+      "featured": true
+    },
+    {
+      "title": "shadows",
+      "description": "Art project — paintings.",
+      "image": "paintings/cien.png",
+      "imageAlt": "shadows — painting",
+      "tags": [
+        "art",
+        "painting"
+      ],
+      "featured": false
+    },
+    {
+      "title": "KreskaStudio",
+      "description": "Web-based 2D skeletal cartoon studio.",
+      "tags": [
+        "web",
+        "2D",
+        "skeletal animation",
+        "software"
+      ],
+      "featured": false
+    },
+    {
+      "title": "malpki",
+      "description": "Animation series project.",
+      "image": "resources/malkimini.png",
+      "imageAlt": "malpki — animation series",
+      "tags": [
+        "animation",
+        "series"
+      ],
+      "featured": false
+    },
+    {
       "title": "Fractal Engine",
       "description": "3D OpenGL game engine written in C++.",
-      "image": "images/workspace.jpeg",
-      "imageAlt": "Example thumbnail — replace with a Fractal Engine screenshot",
+      "image": "resources/Logo.png",
+      "imageAlt": "Fractal Engine logo",
       "url": "https://github.com/kacperks/Fractal_Engine",
       "tags": [
         "C++",
         "OpenGL",
         "gamedev"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "PolyGun",
       "description": "Multiplayer voxel engine made in C++. Started with friends and later continued mostly by mrkubax10.",
-      "image": "images/workspace1.png",
-      "imageAlt": "Example thumbnail — replace with a PolyGun screenshot",
+      "image": "resources/polygun_header.png",
+      "imageAlt": "PolyGun project header",
       "url": "https://git.weirdcore.net/PolyGun/PolyGun",
       "tags": [
         "C++",
         "voxels",
         "multiplayer"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "SussyCraft",
       "description": "Android game based on the Minetest engine, made for fun with Looki2000.",
-      "image": "images/balkon.jpeg",
-      "imageAlt": "Example thumbnail — replace with a SussyCraft screenshot",
+      "image": "resources/sussy.png",
+      "imageAlt": "SussyCraft",
       "url": "https://sussycraft.github.io/",
       "tags": [
         "Android",
@@ -58,8 +104,8 @@
     {
       "title": "Farmers League",
       "description": "2D platformer sandbox game made in C# and Unity Engine.",
-      "image": "images/lost_greenhouse.jpeg",
-      "imageAlt": "Example thumbnail — replace with a Farmers League screenshot",
+      "image": "software-projects/2fl.webp",
+      "imageAlt": "Farmers League gameplay",
       "url": "software-projects/farmers_league.html",
       "tags": [
         "C#",
