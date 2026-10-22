@@ -31,11 +31,10 @@
     },
     {
       "title": "shadows",
-      "description": "Art project — paintings.",
-      "image": "paintings/cien.png",
+      "description": "Art project.",
+      "image": "resources/cien.png",
       "imageAlt": "shadows — painting",
       "tags": [
-        "art",
         "painting"
       ],
       "featured": false
@@ -43,10 +42,10 @@
     {
       "title": "KreskaStudio",
       "description": "Web-based 2D skeletal cartoon studio.",
+      "image": "resources/kreska.png",
       "tags": [
         "web",
         "2D",
-        "skeletal animation",
         "software"
       ],
       "featured": false
@@ -54,11 +53,13 @@
     {
       "title": "malpki",
       "description": "Animation series project.",
-      "image": "resources/malkimini.png",
+      "image": "resources/malpki.png",
       "imageAlt": "malpki — animation series",
       "tags": [
         "animation",
-        "series"
+        "2D",
+        "Audio",
+        "Text"
       ],
       "featured": false
     },
@@ -83,8 +84,7 @@
       "url": "https://git.weirdcore.net/PolyGun/PolyGun",
       "tags": [
         "C++",
-        "voxels",
-        "multiplayer"
+        "Gamedev"
       ],
       "featured": false
     },
