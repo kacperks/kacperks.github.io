@@ -1,0 +1,72 @@
+{
+  "backgrounds": [
+    "images/balkon.jpeg",
+    "images/falowiec_widok1.jpeg",
+    "images/falowiec_widok2.jpeg",
+    "images/falowiec_widok3.jpeg",
+    "images/hel1.jpeg",
+    "images/hel2.jpeg",
+    "images/lost_greenhouse.jpeg",
+    "images/mlampa.jpeg",
+    "images/molo3am.jpeg",
+    "images/robot.jpeg",
+    "images/strangeplace.jpeg",
+    "images/tene.jpeg",
+    "images/workspace.jpeg",
+    "images/workspace1.png"
+  ],
+  "projects": [
+    {
+      "title": "Fractal Engine",
+      "description": "3D OpenGL game engine written in C++.",
+      "image": "images/workspace.jpeg",
+      "imageAlt": "Example thumbnail — replace with a Fractal Engine screenshot",
+      "url": "https://github.com/kacperks/Fractal_Engine",
+      "tags": [
+        "C++",
+        "OpenGL",
+        "gamedev"
+      ],
+      "featured": true
+    },
+    {
+      "title": "PolyGun",
+      "description": "Multiplayer voxel engine made in C++. Started with friends and later continued mostly by mrkubax10.",
+      "image": "images/workspace1.png",
+      "imageAlt": "Example thumbnail — replace with a PolyGun screenshot",
+      "url": "https://git.weirdcore.net/PolyGun/PolyGun",
+      "tags": [
+        "C++",
+        "voxels",
+        "multiplayer"
+      ],
+      "featured": true
+    },
+    {
+      "title": "SussyCraft",
+      "description": "Android game based on the Minetest engine, made for fun with Looki2000.",
+      "image": "images/balkon.jpeg",
+      "imageAlt": "Example thumbnail — replace with a SussyCraft screenshot",
+      "url": "https://sussycraft.github.io/",
+      "tags": [
+        "Android",
+        "Minetest",
+        "gamedev"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Farmers League",
+      "description": "2D platformer sandbox game made in C# and Unity Engine.",
+      "image": "images/lost_greenhouse.jpeg",
+      "imageAlt": "Example thumbnail — replace with a Farmers League screenshot",
+      "url": "software-projects/farmers_league.html",
+      "tags": [
+        "C#",
+        "Unity",
+        "gamedev"
+      ],
+      "featured": false
+    }
+  ]
+}
