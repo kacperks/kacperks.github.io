@@ -1,5 +1,23 @@
-:root { color-scheme: dark; font-family: 'Roboto Mono', monospace; color: #f1eef8; background: #171322; }
+@font-face {
+  font-family: "Ink Rune Hand";
+  src: url("/KreskaClean-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Ink Rune Hand", monospace;
+  color: #f1eef8;
+  background: #171322;
+}
+body {
+    text-transform: uppercase;
+}
+
 * { box-sizing: border-box; }
+img { image-rendering: pixelated; }
 body { margin: 0; padding: 24px; isolation: isolate; }
 #noise-background { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 .site-header { max-width: 1100px; margin: 24px auto 40px; display: flex; gap: 20px; align-items: center; }
@@ -26,3 +44,9 @@ h2 { margin-bottom: 10px; }
 .info-links { list-style: none; padding: 0; line-height: 2; overflow-wrap: anywhere; }
 footer { margin-top: 40px; color: #b2a6c1; font-size: .85rem; }
 @media (max-width: 480px) { body { padding: 12px; } .site-header { gap: 12px; margin: 12px auto 24px; } .site-header img { width: 44px; height: 44px; } }
+
+/* Hand-drawn Kreska header; transparent, with no player controls. */
+.animated-heading { flex: 1; min-width: 0; margin: 0; }
+#header-animation { display: block; width: 100%; max-width: 960px; height: auto; aspect-ratio: 960 / 244; background: transparent; }
+#header-animation[hidden] { display: none; }
+.animation-ready .header-title-fallback { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
